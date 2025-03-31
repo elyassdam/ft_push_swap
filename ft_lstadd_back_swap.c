@@ -1,6 +1,6 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
+/*                                                      34op56546  :::      ::::::::   */
 /*   ft_lstadd_back_swap.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yael-you <yael-you@student.42madrid.com    +#+  +:+       +#+        */
@@ -22,5 +22,5 @@ void	ft_lstadd_back_swap(t_list **lst, t_list *new)
 	}
 	while ((*lst)->next != NULL)
 		lst = &(*lst)->next;
-	(*lst)->next = new;
+	(*lst)->next = new;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 }

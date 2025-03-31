@@ -3,13 +3,11 @@
 
 
 
-int ft_check_duplicates(char **argv,t_stack *stack);
-
-typedef  struct stack
+typedef struct s_stack
 {
     int size;
-    int *content;
-}t_stack;
+    t_node *top;
+} t_stack;
 
 typedef struct s_node
 {
