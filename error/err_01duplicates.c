@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   err_01duplicates.c                                 :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: yael-you <yael-you@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:03:12 by yael-you          #+#    #+#             */
-/*   Updated: 2025/03/31 17:12:54 by yael-you         ###   ########.fr       */
+/*   Updated: 2025/04/02 11:01:22 by yael-you         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ft_push_swap.h"
 #include <stdlib.h>
@@ -127,16 +127,31 @@ void	ss(t_stack *a, t_stack *b)
 	swap(b);
 }
 
-void	push(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
 	t_node	*i;
-	int		t;
 
-	if (!a || !a->top || !b || !b->top)
+	if (!b || !b->top)
 		return ;
 	a->size = ft_lstsize(a);
 	if (a->size <= 1)
 		return ;
-    
-    
+	i = a->top;
+	a->top = a->top->next;
+	i->next = b->top;
+	b->top = i;
+}
+void	pb(t_stack *a, t_stack *b)
+{
+	t_node	*i;
+
+	if (!a || !a->top)
+		return ;
+	b->size = ft_lstsize(b);
+	if (b->size <= 1)
+		return ;
+	i = b->top;
+	b->top = b->top->next;
+	i->next = a->top;
+	a->top = i;
 }

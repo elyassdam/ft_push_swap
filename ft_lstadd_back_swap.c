@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "./libft"
+
 void	ft_lstadd_back_swap(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
