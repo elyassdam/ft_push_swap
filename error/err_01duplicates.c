@@ -6,7 +6,7 @@
 /*   By: yael-you <yael-you@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 14:03:12 by yael-you          #+#    #+#             */
-/*   Updated: 2025/04/03 14:42:56 by yael-you         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:52:52 by yael-you         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -182,8 +182,10 @@ void rb (t_stack *b)
 {
 	t_node *first;
 	t_node *last;
+
+	if (!b || !b->top || !b->top->next)
+    	return;
 	b->size = ft_lstsize(b);
-	
 	first = b->top;
 	last = b->top;
 	
@@ -201,3 +203,26 @@ void rr (t_stack *a, t_stack *b)
 	ra(a);
 	rb(b);
 }
+
+void rra (t_stack *a)
+{
+	t_node *first;
+	t_node *last;
+	int	i;
+	
+ 	if (!a || !a->top || !a->top->next)
+    	return;
+	a->size = ft_lstsize(a);
+	first = a->top;
+	last = a->top;
+	i = 1;
+	while (i < a->size -1)
+	{
+		last = last->next;
+		i ++;
+	}
+	a->top = last->next;
+	first->next =  last;
+	last->next = NULL;
+}
+
